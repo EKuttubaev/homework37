@@ -13,7 +13,7 @@ def text_from_left(draw: ImageDraw, font: ImageFont, text, color, coords):
 
 
 def make_and_save_card(person):
-    template = Image.open("level0_template.jpg")
+    template = Image.open("sourse_img/level0_template.jpg")
     name_font = ImageFont.truetype("fonts/OpenSans-Light.ttf", 50)
     surname_font = ImageFont.truetype("fonts/OpenSans-SemiBold.ttf", 50)
     position_font = ImageFont.truetype("fonts/OpenSans-SemiBold.ttf", 20)
@@ -22,18 +22,18 @@ def make_and_save_card(person):
     surname_coords = (555, 336)
     position_coords = (555, 413)
     mail_coords = (770, 240)
-    phone_coords=(770,320)
-    adress_coords=(770,410)
-    web_page_coords=(770,495)
+    phone_coords = (770, 320)
+    adress_coords = (770, 410)
+    web_page_coords = (770, 495)
     draw = ImageDraw.Draw(template)
 
     text_from_rigth(draw, name_font, person[0].upper(), "#FFF", name_coords)
     text_from_rigth(draw, surname_font, person[1].upper(), "#FFF", surname_coords)
     text_from_rigth(draw, position_font, person[2].upper(), "#F00", position_coords)
-    text_from_left(draw,other_inf_font,person[3].upper(),"#FFF",mail_coords)
-    text_from_left(draw,other_inf_font,person[4].upper(),"#FFF",phone_coords)
-    text_from_left(draw,other_inf_font,person[5].upper(),"#FFF",adress_coords)
-    text_from_left(draw,other_inf_font,person[6].upper(),"#FFF",web_page_coords)
+    text_from_left(draw, other_inf_font, person[3].upper(), "#FFF", mail_coords)
+    text_from_left(draw, other_inf_font, person[4].upper(), "#FFF", phone_coords)
+    text_from_left(draw, other_inf_font, person[5].upper(), "#FFF", adress_coords)
+    text_from_left(draw, other_inf_font, person[6].upper(), "#FFF", web_page_coords)
 
     template.save(f"results/card_{person[0]}_{person[1]}.png", "PNG")
 

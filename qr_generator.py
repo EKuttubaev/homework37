@@ -3,10 +3,8 @@ import qrcode
 from PIL import Image, ImageDraw, ImageFont
 
 
-
-
 def make_qr(qr):
-    img = Image.open("template_level1.jpg")
+    img = Image.open("sourse_img/template_level1.jpg")
     qr_coord = (338, 487)
     name_point_coords = (450, 1450)
     size = 571
@@ -16,8 +14,8 @@ def make_qr(qr):
     new_img = qr_img.resize((size, size), Image.ANTIALIAS)
     img.paste(new_img, qr_coord)
     draw = ImageDraw.Draw(img)
-    if len(qr[1])>7:
-        n=qr[1][0:7]
+    if len(qr[1]) > 7:
+        n = qr[1][0:7]
         draw.text(name_point_coords, n, "#FF0", font=text_font)
         img.save(f"results/new_qr{qr[1]}.png", "PNG")
     else:
